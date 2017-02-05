@@ -5,11 +5,12 @@ var path = require('path'); //Used to automatically convert URL as path
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-    title: 'Article-One | Arvind',
-    heading: 'Article One',
-    date: 'Feb 5. 2017',
-    content: `<p>
+var articles = {
+    'article-one': {
+        title: 'Article-One | Arvind',
+        heading: 'Article One',
+        date: 'Feb 5. 2017',
+        content: `<p>
                     This is the content of my first web app under imad course. This is the content of my first web app under imad course. This is the content of my first web app under imad course. This is the content of my first web app under imad course. This is the content of my first web app under imad course. This is the content of my first web app under imad course.
                  </p>
                  <p>
@@ -18,6 +19,23 @@ var articleOne = {
                  <p>
                     This is the content of my first web app under imad course. This is the content of my first web app under imad course. This is the content of my first web app under imad course. This is the content of my first web app under imad course. This is the content of my first web app under imad course. This is the content of my first web app under imad course.
                  </p>`
+    },
+    'article-two': {
+        title: 'Article-Two | Arvind',
+        heading: 'Article Two',
+        date: 'Feb 5. 2017',
+        content: `<p>
+                    This is the content of my second web app under imad course. 
+                 </p>`
+    },
+    'article-three': {
+        title: 'Article-Three | Arvind',
+        heading: 'Article Three',
+        date: 'Feb 5. 2017',
+        content: `<p>
+                    This is the content of my third web app under imad course. 
+                 </p>`
+    }
 };
 
 function createTemplate (data){
@@ -64,8 +82,8 @@ app.get('/', function (req, res) {
 //   res.sendFile(path.join(__dirname, 'ui', 'main.js')); 
 //});
 
-app.get('/article-one', function(req, res) {
-   res.send(createTemplate(articleOne)); 
+app.get('/:articleName', function(req, res) {
+   res.send(createTemplate(articleName)); 
 });
 
 app.get('/article-two', function(req, res) {
