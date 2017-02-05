@@ -1,6 +1,6 @@
-var express = require('express');
-var morgan = require('morgan');
-var path = require('path');
+var express = require('express'); //Create web server (listen on port and handle http requests)
+var morgan = require('morgan'); //Help with output logs
+var path = require('path'); //Used to automatically convert URL as path
 
 var app = express();
 app.use(morgan('combined'));
