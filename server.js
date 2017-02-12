@@ -88,7 +88,7 @@ app.get('/counter', function (req, res){
 });
 
 var names =[];
-app.get('submit-name', function (req, res){
+app.get('/submit-name', function (req, res){
     names = req.query.names;
     res.send(JSON.stringify(names));
 });
