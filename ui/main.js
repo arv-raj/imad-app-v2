@@ -31,3 +31,4 @@ button.onclick = function () {
     request.open('GET','http://arv-raj.imad.hasura-app.io/counter', true);
     request.send(null);
 };
+
