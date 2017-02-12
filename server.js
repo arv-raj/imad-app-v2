@@ -87,6 +87,12 @@ app.get('/counter', function (req, res){
     res.send(counter.toString());
 });
 
+var names =[];
+app.get('submit-name', function (req, res){
+    names = req.query.names;
+    res.send(JSON.stringify(names));
+});
+
 app.get('/:articleName', function(req, res) {
     var articleName = req.params.articleName;
     res.send(createTemplate(articles[articleName])); 
