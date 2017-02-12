@@ -11,15 +11,23 @@ img.onclick = function () {
 };*/
 
 var button = document.getElementById('counter');
-var counter = 0;
 button.onclick = function () {
     
-    //Create request and send the request
+    //Create request
+    var request = new XMLHttpRequest();
     
     //Response to the request
-    
-    //Render the request in the web page
-    counter = counter + 1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
+    request.onreadystatechange = function () {
+      if(request.readystate === XMLHttpRequest.DONE) {
+          //Take some action
+          if(request.status === 200){
+              var counter = request.responsetext;
+              var span = document.getElementById('count');
+              span.innerHTML = counter.toString();
+          }
+      }  
+    };
+    //Make Request
+    request.open('GET','http://arv-raj.imad.hasura-app.io/counter', true);
+    request.send(null);
 };
