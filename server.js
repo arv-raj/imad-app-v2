@@ -92,7 +92,7 @@ app.get('/ui/main.js', function(req, res){
    res.sendFile(path.join(__dirname, 'ui', 'main.js')); 
 });
 
-var Pool = new Pool(config)
+var Pool = new Pool(config);
 
 app.get('/test-db', function(req, res) {
     Pool.query('SELECT * from test', function(err,result){
