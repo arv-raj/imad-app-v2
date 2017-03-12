@@ -3,7 +3,7 @@ var morgan = require('morgan'); //Help with output logs
 var path = require('path'); //Used to automatically convert URL as path
 
 //var http = require('http');
-var pool = require('pg').pool;
+var Pool = require('pg').Pool;
 
 var config = {
     user: 'arv-raj',
@@ -88,7 +88,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var pool = new pool(config);
+var Pool = new Pool(config);
 
 app.get('/test-db', function(req, res) {
     pool.query('SELECT * from test', function(err,result){
