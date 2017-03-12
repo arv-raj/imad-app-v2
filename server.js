@@ -3,7 +3,7 @@ var morgan = require('morgan'); //Help with output logs
 var path = require('path'); //Used to automatically convert URL as path
 
 //var http = require('http');
-var pool = require('pg').Pool;
+var pool = require('pg').pool;
 
 var config = {
     user: 'arv-raj',
